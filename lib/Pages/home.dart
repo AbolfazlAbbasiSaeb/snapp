@@ -1,14 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
+import 'package:snapp/Pages/LoginPage.dart';
 
 class MapPage extends StatefulWidget {
   @override
   State<MapPage> createState() => _MapPageState();
 }
+
 class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,8 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   @override
-  String _address = 'تهران,میدان آزادی';
+  String _address = 'تهران,میدان آزادی'; //آدرس دیفالت
+  String APIKey = 'service.c9a6418b1e1f44799ec873e02674c6e9';  // توکن دریافتی از سایت نشان
   Future<void> _getAddress(LatLng latLng) async {
     final apiKey = 'f0706cf12f83a805b7dd400cf70dd63b';
     final url =
@@ -34,7 +38,7 @@ class _MapScreenState extends State<MapScreen> {
     final response = await http.get(
       Uri.parse(url),
       headers: {
-        'Api-Key': 'service.c9a6418b1e1f44799ec873e02674c6e9',
+        'Api-Key': APIKey,
       },
     );
     final bodyBytes = response.bodyBytes;
@@ -49,7 +53,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   @override
-  LatLng _center = LatLng(35.6997, 51.3380);
+  LatLng _center = LatLng(35.6997, 51.3380); // مختصات دیفالت میدان آزادی تهران
   final Location _location = Location();
   final MapController _mapController = MapController();
   void _getCurrentLocation() async {
@@ -80,7 +84,7 @@ class _MapScreenState extends State<MapScreen> {
         mapController: _mapController,
         nonRotatedChildren: [
           Padding(
-            padding: const EdgeInsets.all(40.0),
+            padding: const EdgeInsets.all(32.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -144,13 +148,16 @@ class _MapScreenState extends State<MapScreen> {
                                 )
                               ]),
                         ),
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(Icons.home, size: 30),
+                        GestureDetector(
+                          onTap: () => Get.to(LoginPage()),
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Icon(Icons.home, size: 30),
+                          ),
                         )
                       ],
                     )
@@ -164,7 +171,8 @@ class _MapScreenState extends State<MapScreen> {
                         FloatingActionButton(
                           onPressed: _getCurrentLocation,
                           tooltip: 'Get Current Location',
-                          child: Icon(Icons.location_on),
+                          backgroundColor: Colors.white,
+                          child: const Icon(Icons.location_on,color: Colors.black),
                         ),
                       ],
                     ),
@@ -184,7 +192,7 @@ class _MapScreenState extends State<MapScreen> {
                         style: const TextStyle(
                             package: 'persian_fonts',
                             fontFamily: 'Vazir',
-                            fontSize: 15,
+                            fontSize: 14,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       )),
@@ -217,7 +225,6 @@ class _MapScreenState extends State<MapScreen> {
         padding: const EdgeInsets.all(15.0),
         child: Container(
             height: 55,
-            // width: 300,
             decoration: const BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.all(Radius.circular(7))),

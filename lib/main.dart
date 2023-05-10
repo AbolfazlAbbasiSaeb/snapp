@@ -16,7 +16,7 @@ class _RunAppState extends State<RunApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: MapPage(),
+      home: LoginPage(),
       // debugShowCheckedModeBanner: false,
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:snapp/Pages/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -135,24 +137,27 @@ class _LoginPageState extends State<LoginPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Container(
-                                    height: 55,
-                                    width: 120,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.green,
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10))),
-                                    child: const Center(
-                                      child: Text(
-                                        'مرحله بعد',
-                                        style: TextStyle(
-                                            package: 'persian_fonts',
-                                            fontFamily: 'Vazir',
-                                            fontSize: 15,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )),
+                                GestureDetector(
+                                  onTap: () => Get.to(MapPage()),
+                                  child: Container(
+                                      height: 55,
+                                      width: 120,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10))),
+                                      child: const Center(
+                                        child: Text(
+                                          'مرحله بعد',
+                                          style: TextStyle(
+                                              package: 'persian_fonts',
+                                              fontFamily: 'Vazir',
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      )),
+                                ),
                               ],
                             ),
                           ],
