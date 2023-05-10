@@ -1,16 +1,14 @@
-# snapp
+# snapp - صفحه لاگین اسنپ و کار با مپ در فلاتر
 
-A new Flutter project.
+Flutter project Ui Snapp - Map.
 
-## Getting Started
+## برای استفاده از مپ در فلاتر
 
-This project is a starting point for a Flutter application.
+برای استفاده شما باید یک توکن آی پی آی از سایت نشان دریاف کنید
 
-A few resources to get you started if this is your first Flutter project:
+بعد از اینکه توکن را از سایت نشان دریافت کردید میتوانید در فایل home.dart لاین 33 قرار دهید
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+این وب سرویس صرفا برای دریافت آدرس با مختصاتی که ما زمان ارسال بهش میدیم و برای ما آدرس رو برمیگردونه
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [آدرس سایت نشان](https://platform.neshan.org/)
+- [آدرس لینکدین من](https://www.linkedin.com/in/abolfazl-abbasi-118398244/)

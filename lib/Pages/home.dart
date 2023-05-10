@@ -30,7 +30,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   @override
   String _address = 'تهران,میدان آزادی'; //آدرس دیفالت
-  String APIKey = 'service.c9a6418b1e1f44799ec873e02674c6e9';  // توکن دریافتی از سایت نشان
+  String APIKey = '';  // توکن دریافتی از سایت نشان
   Future<void> _getAddress(LatLng latLng) async {
     final apiKey = 'f0706cf12f83a805b7dd400cf70dd63b';
     final url =
